@@ -3,14 +3,15 @@ package in.abhi.service;
 import java.util.List;
 
 import in.abhi.bindings.UnlockAccForm;
+import in.abhi.bindings.UserAccForm;
 
 public interface AccountService {
 	
-	public boolean createUserAccount(UserAccountForm accForm);
+	public boolean createUserAccount(UserAccForm accForm);
 	
-	public List<UserAccountFrom> fetchUserAccounts();
+	public List<UserAccForm> fetchUserAccounts();
 	
-	public UserAccountForm getUserAccById(Integer accId);
+	public UserAccForm getUserAccById(Integer accId);
 	
 	public String changeAccStatus(Integer accId, String status);
 	
