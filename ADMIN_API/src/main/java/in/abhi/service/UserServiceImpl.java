@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService{
 			return "Invalid Credentials";
 		}
 		if("Y".equals(entity.getActiveSw()) && "UNLOCKED".equals(entity.getAccStatus())) {
-			return "Success";
+			return "success";
 		}else {
 			return "Account locked/Invalid";
 		}
