@@ -2,11 +2,13 @@ package in.abhi.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import in.abhi.bindings.DashboardCard;
 import in.abhi.bindings.LoginForm;
+import in.abhi.bindings.UserAccForm;
 import in.abhi.entities.EligEntity;
 import in.abhi.entities.UserEntity;
 import in.abhi.repositories.EligRepo;
@@ -72,6 +74,16 @@ public class UserServiceImpl implements UserService{
 		card.setBeniftAmtGiven(total);
 
 		return card;
+	}
+
+	@Override
+	public UserAccForm getUserByEmail(String email) {
+		
+		UserEntity userEntity = userRepo.findByEmail(email);
+		
+		UserAccForm user=new UserAccForm();
+		BeanUtils.copyProperties(userEntity, user);
+		return user;
 	}
 
 }
